@@ -1,13 +1,16 @@
 import React from "react";
 
 export default function Form(props) {
-    const { formValues, change, submit } = props;
+    const { formValues, change, submit, errors } = props;
     
     return (
         <div>
             <form onSubmit={submit}>
+                <div>
+                    <div>{errors.name}</div>
+                </div>
                 <h3>Make Your Own Pizza</h3>
-                <label>
+                <label className="name">
                     Name
                     <input type="text" name="name" value={formValues.name} onChange={change}/>
                 </label>
@@ -26,23 +29,23 @@ export default function Form(props) {
                     <h3>Toppings</h3>   
                     <label>
                         Cheese
-                        <input type="checkbox" name="cheese" onChange={change} checked={formValues.cheese}/>
+                        <input className="cheese" type="checkbox" name="cheese" onChange={change} checked={formValues.cheese}/>
                     </label>
-                    <label>
+                    <label >
                         Sauce
-                        <input type="checkbox" name="sauce" onChange={change}/>
+                        <input className="sauce" type="checkbox" name="sauce" onChange={change} checked={formValues.sauce}/>
                     </label>
                     <label>
                         Olives
-                        <input type="checkbox" name="olives" onChange={change}/>
+                        <input type="checkbox" name="olives" onChange={change} checked={formValues.olives}/>
                     </label>
-                    <label>
+                    <label >
                         Meat
-                        <input type="checkbox" name="meat" onChange={change}/>
+                        <input className="meat" type="checkbox" name="meat" onChange={change} checked={formValues.meat}/>
                     </label>
                 </div>
                 <h3>Special Instructions</h3>
-                <label>
+                <label className="instructions">
                     Instructions
                     <input type="text" name="specialInstructions" value={formValues.specialInstructions} onChange={change}/>
                 </label>
